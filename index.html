@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/jquery-1.11.3.js"></script>
+
+    <link rel="stylesheet" href="css/metro.css"/>
+    <link href="css/metro-icons.css" rel="stylesheet">
+    <script src="js/metro.js"></script>
+</head>
+<body ng-app="camperNews">
+<div class="container">
+    <div class="align-center fg-cyan">
+        <h1><strong>FreeCodeCamp</strong></h1>
+        <h2>Camper News</h2>
+    </div>
+    <br/>
+    <div ng-controller="myController as Ctrl">
+        <a href="{{x.link}}" ng-repeat="x in Ctrl.post" target="_blank">
+            <div class="image-container">
+                <div class="frame"><img ng-src="{{Ctrl.setImage(x)}}" ng-style="{'height':'228px', 'width':'315px'}"></div>
+                <div class="image-overlay">
+                    <h4><strong>{{x.headline}}</strong></h4>
+                    <p>Author: {{x.author.username}}</p>
+                    <p>Date: {{x.timePosted | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                    <span>upvotes:</span><span class="tile-badge bg-darkRed">{{x.upVotes.length}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
